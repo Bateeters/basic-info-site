@@ -23,9 +23,8 @@ app.get("/contact", (req, res) => {
 
 // app.use is what we can use to create a default display
 // can be used for the 404 error page
-app.use((req, res, next) => {
-    // setting the status to display when the 404 error is thrown.
-    res.status(404).sendFile(path.join(__dirname, '404.html'));   
+app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(__dirname, '404.html'));
 })
 
 
