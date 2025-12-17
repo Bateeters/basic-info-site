@@ -21,7 +21,8 @@ app.get("/contact", (req, res) => {
     res.sendFile(path.join(__dirname, 'contact-me.html'));
 });
 
-// app.use is what we can use to create a default display
+// /{*splat} is used as a catch-all that is not previously defined.
+// must be defined last or else it will prevent the other routes from working properly
 // can be used for the 404 error page
 app.get("/{*splat}", (req, res) => {
     res.sendFile(path.join(__dirname, '404.html'));
